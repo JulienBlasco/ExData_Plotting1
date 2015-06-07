@@ -1,0 +1,5 @@
+header <- read.table("household_power_consumption.txt", nrows=1, header=FALSE, sep=";", quote="", na.strings="?")
+consumption <- read.table("household_power_consumption.txt", nrows=2880, header=FALSE, sep=";", quote="", na.strings="?", skip=66637)
+colnames(consumption) <- unlist(header)
+hist(consumption$Global_active_power, xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red", main="Global Active Power")
+dev.copy(png, file = "plot1.png")
